@@ -5,8 +5,10 @@ const carController = require('../controller/countryController');
  * getAll nevű metódusát és string típusként visszaadja az adatok tömbjét.
  */
  const router = {
-    'get': async (res) => res.end(JSON.stringify(await carController.getAll())),
-    
+    'get': async (res) => {
+        res.setHeader('Content-Type', 'application/json')
+        res.end(JSON.stringify(await carController.getAll()))
+    }
 };
 
 /**
